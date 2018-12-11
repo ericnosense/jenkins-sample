@@ -9,15 +9,11 @@ node () {
 	}
 	stage ('App-IC - Build') {
  			// Maven build step
-	withMaven { 
+	withMaven(maven: 'maven-3.5.3') { 
  			if(isUnix()) {
- 				sh "mvn clean package
-
- " 
+ 				sh "mvn clean package " 
 			} else { 
- 				bat "mvn clean package
-
- " 
+ 				bat "mvn clean package " 
 			} 
  		} 
 	}
